@@ -15,7 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResponsiveActivity"></activity>
+        <activity android:name=".responsive.ResponsiveActivity"></activity>
     </application>
 
 </manifest>
