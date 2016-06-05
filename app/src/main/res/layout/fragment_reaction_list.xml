@@ -1,0 +1,15 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".responsive.react.ReactionListFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_reaction_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="@dimen/spacing_medium"
+        tools:listitem="@layout/item_reaction_list" />
+
+</FrameLayout>
