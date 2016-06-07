@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.androidrio.motioninandroid.R;
-import com.androidrio.motioninandroid.responsive.create.NewSurfaceFragment;
+import com.androidrio.motioninandroid.responsive.movement.MovementFragment;
 
 public class ResponsiveActivity extends AppCompatActivity {
 
@@ -14,7 +14,7 @@ public class ResponsiveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_responsive);
 
         if (savedInstanceState == null) {
-            NewSurfaceFragment fragment = NewSurfaceFragment.newInstance();
+            MovementFragment fragment = MovementFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.content_root, fragment, "reaction")
                     .commit();
         }
