@@ -13,7 +13,7 @@
 
 
         <ImageView
-            android:id="@+id/fragment_movement_card"
+            android:id="@+id/fragment_transforming_card"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="center"

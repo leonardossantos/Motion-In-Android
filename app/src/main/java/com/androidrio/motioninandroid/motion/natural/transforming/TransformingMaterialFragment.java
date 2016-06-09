@@ -66,7 +66,7 @@ public class TransformingMaterialFragment extends Fragment {
             @Override
             public void run() {
                 ViewGroup sceneRoot = mFirstScene.getSceneRoot();
-                View card = sceneRoot.findViewById(R.id.fragment_movement_card);
+                View card = sceneRoot.findViewById(R.id.fragment_transforming_card);
                 card.setScaleX(0.5f);
                 card.setScaleY(0.5f);
                 card.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +82,7 @@ public class TransformingMaterialFragment extends Fragment {
             @Override
             public void run() {
                 ViewGroup sceneRoot = mSecondScene.getSceneRoot();
-                View card = sceneRoot.findViewById(R.id.fragment_movement_card);
+                View card = sceneRoot.findViewById(R.id.fragment_transforming_card);
                 card.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
