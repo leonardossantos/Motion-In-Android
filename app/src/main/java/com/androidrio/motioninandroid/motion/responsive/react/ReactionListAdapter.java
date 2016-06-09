@@ -1,4 +1,4 @@
-package com.androidrio.motioninandroid.responsive.react;
+package com.androidrio.motioninandroid.motion.responsive.react;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

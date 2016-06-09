@@ -11,7 +11,7 @@
         <activity android:name=".HomeActivity">
 
         </activity>
-        <activity android:name=".responsive.ResponsiveActivity">
+        <activity android:name=".motion.responsive.ResponsiveActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,9 +1,9 @@
-package com.androidrio.motioninandroid.responsive.movement;
+package com.androidrio.motioninandroid.motion.natural.transforming;
+
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.transition.Scene;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
@@ -19,16 +19,18 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by AndroidRio on 04/06/2016.
+ * A simple {@link Fragment} subclass.
  */
-public class MovementFragment extends Fragment {
+public class TransformingMaterialFragment extends Fragment {
+
+
     private Scene mFirstScene;
     private Scene mSecondScene;
-    @Bind(R.id.fragment_movement_container)
+    @Bind(R.id.fragment_transforming_container)
     FrameLayout mContainer;
 
-    public static MovementFragment newInstance() {
-        MovementFragment fragment = new MovementFragment();
+    public static TransformingMaterialFragment newInstance() {
+        TransformingMaterialFragment fragment = new TransformingMaterialFragment();
         return fragment;
     }
 
@@ -40,7 +42,7 @@ public class MovementFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_movement, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_transforming_material, container, false);
 
         ButterKnife.bind(this, rootView);
 
@@ -51,10 +53,10 @@ public class MovementFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mFirstScene = Scene.getSceneForLayout(mContainer, R.layout.fragment_movement_fscene, getActivity());
-        mSecondScene = Scene.getSceneForLayout(mContainer, R.layout.fragment_movement_sscene, getActivity());
+        mFirstScene = Scene.getSceneForLayout(mContainer, R.layout.fragment_transforming_material_fscene, getActivity());
+        mSecondScene = Scene.getSceneForLayout(mContainer, R.layout.fragment_transforming_material_sscene, getActivity());
 
-        final Transition arcTransition = TransitionInflater.from(getActivity()).inflateTransition(R.transition.trasition_arc);
+        final Transition arcTransition = TransitionInflater.from(getActivity()).inflateTransition(R.transition.trasition_transforming);
 
         final TransitionManager transitionManager = new TransitionManager();
         transitionManager.setTransition(mFirstScene, mSecondScene, arcTransition);
@@ -64,7 +66,9 @@ public class MovementFragment extends Fragment {
             @Override
             public void run() {
                 ViewGroup sceneRoot = mFirstScene.getSceneRoot();
-                CardView card = (CardView) sceneRoot.findViewById(R.id.fragment_movement_card);
+                View card = sceneRoot.findViewById(R.id.fragment_movement_card);
+                card.setScaleX(0.5f);
+                card.setScaleY(0.5f);
                 card.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -78,7 +82,7 @@ public class MovementFragment extends Fragment {
             @Override
             public void run() {
                 ViewGroup sceneRoot = mSecondScene.getSceneRoot();
-                CardView card = (CardView) sceneRoot.findViewById(R.id.fragment_movement_card);
+                View card = sceneRoot.findViewById(R.id.fragment_movement_card);
                 card.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -91,4 +95,5 @@ public class MovementFragment extends Fragment {
         transitionManager.transitionTo(mFirstScene);
 
     }
+
 }

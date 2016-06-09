@@ -1,10 +1,10 @@
-package com.androidrio.motioninandroid.responsive;
+package com.androidrio.motioninandroid.motion.responsive;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.androidrio.motioninandroid.R;
-import com.androidrio.motioninandroid.responsive.transforming.TransformingMaterialFragment;
+import com.androidrio.motioninandroid.motion.natural.transforming.TransformingMaterialFragment;
 
 public class ResponsiveActivity extends AppCompatActivity {
 

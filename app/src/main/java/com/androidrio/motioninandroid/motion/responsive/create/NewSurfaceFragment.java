@@ -1,4 +1,4 @@
-package com.androidrio.motioninandroid.responsive.create;
+package com.androidrio.motioninandroid.motion.responsive.create;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
