@@ -36,6 +36,8 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     public static final int STAGGERED_LIST = 3;
 
+    public static final int GRID = 4;
+
     private Drawable mDivider;
 
     private int mOrientation;
@@ -57,7 +59,7 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     public void setOrientation(int orientation) {
-        if (orientation != HORIZONTAL_LIST && orientation != VERTICAL_LIST && orientation != STAGGERED_LIST) {
+        if (orientation != HORIZONTAL_LIST && orientation != VERTICAL_LIST && orientation != STAGGERED_LIST && orientation != GRID) {
             throw new IllegalArgumentException("invalid orientation");
         }
         mOrientation = orientation;
@@ -111,14 +113,19 @@ public class DividerItemDecoration extends RecyclerView.ItemDecoration {
             outRect.set(0, 0, 0, mDivider.getIntrinsicHeight());
             outRect.set(0, 0, 0, mSpace);
 
-        } else if(mOrientation == HORIZONTAL_LIST) {
+        } else if (mOrientation == HORIZONTAL_LIST) {
             outRect.set(0, 0, mDivider.getIntrinsicWidth(), 0);
             outRect.set(0, 0, mSpace, 0);
-        } else{
+        } else if (mOrientation == GRID) {
+            outRect.left = mSpace;
+            outRect.right = mSpace;
+            outRect.bottom = mSpace;
+            outRect.top = 0;
+        } else {
             int position = ((RecyclerView.LayoutParams) view.getLayoutParams()).getViewLayoutPosition();
-            if(position % 2 == 0) {
+            if (position % 2 == 0) {
                 outRect.set(0, 0, 0, mSpace);
-            }else{
+            } else {
                 outRect.set(0, 0, mSpace, mSpace);
             }
         }
