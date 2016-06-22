@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.androidrio.motioninandroid.motion.responsive.ResponsiveFragment;
+import com.androidrio.motioninandroid.motion.responsive.ResponsiveListFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
         if (savedInstanceState == null) {
-            ResponsiveFragment fragment = ResponsiveFragment.newInstance();
+            ResponsiveListFragment fragment = ResponsiveListFragment.newInstance();
             getSupportFragmentManager().beginTransaction().replace(R.id.home_container, fragment, "home_container")
                     .commit();
         }

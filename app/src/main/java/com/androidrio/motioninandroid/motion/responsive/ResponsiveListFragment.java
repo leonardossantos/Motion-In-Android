@@ -18,13 +18,13 @@ import butterknife.ButterKnife;
 /**
  * Created by AndroidRio on 22/06/2016.
  */
-public class ResponsiveFragment extends Fragment {
+public class ResponsiveListFragment extends Fragment {
 
     @Bind(R.id.fragment_responsive_list)
     RecyclerView mResponsiveList;
 
-    public static ResponsiveFragment newInstance() {
-        ResponsiveFragment fragment = new ResponsiveFragment();
+    public static ResponsiveListFragment newInstance() {
+        ResponsiveListFragment fragment = new ResponsiveListFragment();
         return fragment;
     }
 
