@@ -28,7 +28,7 @@ public class ReactionListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemCount() {
-        return 20;
+        return 5;
     }
 
     public class ReactionItemViewHolder extends RecyclerView.ViewHolder {
