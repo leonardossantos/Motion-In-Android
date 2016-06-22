@@ -6,12 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.motion.natural.transforming.TransformingMaterialFragment;
 
-public class ResponsiveActivity extends AppCompatActivity {
+public class ResponsiveDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_responsive);
+        setContentView(R.layout.activity_responsive_detail);
 
         if (savedInstanceState == null) {
             TransformingMaterialFragment fragment = TransformingMaterialFragment.newInstance();

@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.androidrio.motioninandroid.motion.responsive.ResponsiveActivity;
+import com.androidrio.motioninandroid.motion.responsive.ResponsiveDetailActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -54,7 +54,7 @@ public class HomeListAdapter extends RecyclerView.Adapter {
             mHomeCard.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), ResponsiveActivity.class);
+                    Intent intent = new Intent(v.getContext(), ResponsiveDetailActivity.class);
                     ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(mActivity,
                             Pair.create(v, "background"));
                     v.getContext().startActivity(intent, options.toBundle());

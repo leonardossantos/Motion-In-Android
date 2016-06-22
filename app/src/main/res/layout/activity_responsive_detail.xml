@@ -6,4 +6,4 @@
     android:layout_height="match_parent"
     android:transitionName="background"
     android:background="@android:color/holo_green_dark"
-    tools:context=".motion.responsive.ResponsiveActivity" />
+    tools:context=".motion.responsive.ResponsiveDetailActivity" />
