@@ -1,4 +1,4 @@
-package com.androidrio.motioninandroid;
+package com.androidrio.motioninandroid.motion.responsive;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.motion.responsive.ResponsiveDetailActivity;
 
 import butterknife.Bind;
@@ -18,10 +19,10 @@ import butterknife.ButterKnife;
 /**
  * Created by AndroidRio on 18/06/2016.
  */
-public class HomeListAdapter extends RecyclerView.Adapter {
+public class ResponsiveListAdapter extends RecyclerView.Adapter {
     private Activity mActivity;
 
-    public HomeListAdapter(Activity activity) {
+    public ResponsiveListAdapter(Activity activity) {
         mActivity = activity;
     }
 

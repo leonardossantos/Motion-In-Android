@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.androidrio.motioninandroid.HomeListAdapter;
 import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.widget.DividerItemDecoration;
 
@@ -45,7 +44,7 @@ public class ResponsiveFragment extends Fragment {
         mResponsiveList.setLayoutManager(layoutManager);
         DividerItemDecoration itemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST, 8);
         mResponsiveList.addItemDecoration(itemDecoration);
-        HomeListAdapter adapter = new HomeListAdapter(getActivity());
+        ResponsiveListAdapter adapter = new ResponsiveListAdapter(getActivity());
         mResponsiveList.setAdapter(adapter);
     }
 }
