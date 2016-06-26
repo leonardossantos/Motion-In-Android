@@ -4,11 +4,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.androidrio.motioninandroid.R;
+import com.androidrio.motioninandroid.util.UIUtils;
+import com.androidrio.motioninandroid.widget.TransitionListenerAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +30,8 @@ public class ChoreographFragment extends Fragment {
     FloatingActionButton mSecondFab;
     @Bind(R.id.choreograph_fab_third)
     FloatingActionButton mThirdFab;
+    @Bind(R.id.choreograph_content_root)
+    RelativeLayout mContentRoot;
 
     public static ChoreographFragment newInstance() {
         ChoreographFragment fragment = new ChoreographFragment();
@@ -55,6 +63,18 @@ public class ChoreographFragment extends Fragment {
     }
 
     private void showHeader(View fab) {
-        //Does nothing
+        final Transition arcTransition = TransitionInflater.from(getActivity()).inflateTransition(R.transition.trasition_choreograph);
+        arcTransition.addListener(new TransitionListenerAdapter() {
+            @Override
+            public void onTransitionEnd(Transition transition) {
+                //Does nothing
+            }
+        });
+
+        TransitionManager.beginDelayedTransition(mContentRoot, arcTransition);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        layoutParams.setMargins(0, UIUtils.dpToPx(50), 0, 0);
+        fab.setLayoutParams(layoutParams);
     }
 }
