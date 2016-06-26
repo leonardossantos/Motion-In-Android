@@ -92,6 +92,7 @@ public class TransformingMaterialFragment extends Fragment {
 
         transitionManager.transitionTo(mFirstScene);
 
+        getActivity().setTitle("Transform Material");
     }
 
 }
