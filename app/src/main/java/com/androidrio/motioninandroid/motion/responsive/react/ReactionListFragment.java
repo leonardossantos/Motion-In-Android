@@ -46,7 +46,7 @@ public class ReactionListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST, 16);
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST, 8);
         mReactionList.addItemDecoration(itemDecoration);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mReactionList.setLayoutManager(layoutManager);
