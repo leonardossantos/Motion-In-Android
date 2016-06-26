@@ -53,6 +53,7 @@ public class ResponsiveListFragment extends Fragment {
         list.add(new Motion(Motion.MOTION_TYPE_CREATE));
         list.add(new Motion(Motion.MOTION_TYPE_REACT));
         list.add(new Motion(Motion.MOTION_TYPE_MOVEMENT));
+        list.add(new Motion(Motion.MOTION_TYPE_TRANSFORM));
 
         ResponsiveListAdapter adapter = new ResponsiveListAdapter(getActivity(), list);
         mResponsiveList.setAdapter(adapter);

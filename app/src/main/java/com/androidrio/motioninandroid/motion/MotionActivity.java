@@ -46,6 +46,7 @@ public class MotionActivity extends AppCompatActivity {
                 case Motion.MOTION_TYPE_MOVEMENT:
                     fragment = MovementFragment.newInstance();
                     break;
+                case Motion.MOTION_TYPE_TRANSFORM:
                 default:
                     fragment = TransformingMaterialFragment.newInstance();
                     break;
