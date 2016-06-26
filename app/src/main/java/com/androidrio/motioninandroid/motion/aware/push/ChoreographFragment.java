@@ -22,6 +22,9 @@ import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.util.UIUtils;
 import com.androidrio.motioninandroid.widget.TransitionListenerAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -43,6 +46,7 @@ public class ChoreographFragment extends Fragment {
 
     RelativeLayout.LayoutParams mFabOriginalParams;
     View mSelectedFab;
+    List<View> mUnselectedFabs;
 
     public static ChoreographFragment newInstance() {
         ChoreographFragment fragment = new ChoreographFragment();
@@ -54,6 +58,10 @@ public class ChoreographFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_choreograph, container, false);
         ButterKnife.bind(this, rootView);
+        mUnselectedFabs = new ArrayList<>();
+        mUnselectedFabs.add(mFirstFab);
+        mUnselectedFabs.add(mSecondFab);
+        mUnselectedFabs.add(mThirdFab);
         return rootView;
     }
 
@@ -66,6 +74,7 @@ public class ChoreographFragment extends Fragment {
             public void onClick(View v) {
                 mFabOriginalParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
                 mSelectedFab = v;
+                mUnselectedFabs.remove(mSelectedFab);
                 showHeader(v);
             }
         };
@@ -86,6 +95,14 @@ public class ChoreographFragment extends Fragment {
         final Transition arcTransition = TransitionInflater.from(getActivity()).inflateTransition(R.transition.trasition_choreograph);
         arcTransition.addListener(new TransitionListenerAdapter() {
             @Override
+            public void onTransitionStart(Transition transition) {
+                for (View view : mUnselectedFabs) {
+                    view.animate().alpha(0);
+                    view.setEnabled(false);
+                }
+            }
+
+            @Override
             public void onTransitionEnd(Transition transition) {
                 revealView(fab, mHeader, R.color.colorAccent);
             }
@@ -99,9 +116,14 @@ public class ChoreographFragment extends Fragment {
     }
 
     private void showFab(View fab, RelativeLayout.LayoutParams layoutParams) {
+        mUnselectedFabs.add(fab);
         final Transition arcTransition = TransitionInflater.from(getActivity()).inflateTransition(R.transition.trasition_choreograph);
         TransitionManager.beginDelayedTransition(mContentRoot, arcTransition);
         fab.setLayoutParams(layoutParams);
+        for (View view : mUnselectedFabs) {
+            view.animate().alpha(1);
+            view.setEnabled(true);
+        }
     }
 
     private void revealView(View sourceView, View targetView, @ColorRes int revealColor) {
