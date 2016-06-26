@@ -65,7 +65,7 @@ public class ResponsiveListAdapter extends RecyclerView.Adapter {
                     bundle.putParcelable(MotionActivity.KEY_MOTION, mMotionList.get(HomeListItem.this.getAdapterPosition()));
                     intent.putExtras(bundle);
                     ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(mActivity,
-                            Pair.create(v, "background"));
+                            Pair.create(v, v.getResources().getString(R.string.shared_item_background)));
                     v.getContext().startActivity(intent, options.toBundle());
                 }
             });
