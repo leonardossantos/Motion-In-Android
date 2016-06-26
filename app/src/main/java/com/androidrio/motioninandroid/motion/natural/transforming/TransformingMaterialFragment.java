@@ -67,8 +67,6 @@ public class TransformingMaterialFragment extends Fragment {
             public void run() {
                 ViewGroup sceneRoot = mFirstScene.getSceneRoot();
                 View card = sceneRoot.findViewById(R.id.fragment_transforming_card);
-                card.setScaleX(0.5f);
-                card.setScaleY(0.5f);
                 card.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -94,6 +92,7 @@ public class TransformingMaterialFragment extends Fragment {
 
         transitionManager.transitionTo(mFirstScene);
 
+        getActivity().setTitle("Transform Material");
     }
 
 }

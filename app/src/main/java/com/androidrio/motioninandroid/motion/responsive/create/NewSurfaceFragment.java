@@ -1,5 +1,7 @@
 package com.androidrio.motioninandroid.motion.responsive.create;
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,11 +14,14 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 
 import com.androidrio.motioninandroid.R;
+import com.androidrio.motioninandroid.util.UIUtils;
+import com.androidrio.motioninandroid.widget.AnimationListenerAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class NewSurfaceFragment extends Fragment {
+    public static final int CARD_HEIGHT = 160;
     @Bind(R.id.fragment_new_surface_toggle)
     ImageButton mToogle;
     @Bind(R.id.fragment_new_surface_card)
@@ -47,35 +52,29 @@ public class NewSurfaceFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        mCard.setPivotY(UIUtils.dpToPx(CARD_HEIGHT));
         mToogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mCard.getVisibility() == View.GONE) {
+                    mCard.setPivotY(UIUtils.dpToPx(CARD_HEIGHT));
                     mCard.setVisibility(View.VISIBLE);
-                    Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.anim_new_surface_expand);
-                    mCard.startAnimation(animation);
-                }else{
+                    AnimatorSet animator = (AnimatorSet) AnimatorInflater.loadAnimator(getActivity(), R.animator.animator_scale);
+                    animator.setTarget(mCard);
+                    animator.start();
+                } else {
                     Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.anim_new_surface_collapse);
-                    animation.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-
-                        }
-
+                    animation.setAnimationListener(new AnimationListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animation animation) {
                             mCard.setVisibility(View.GONE);
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-
                         }
                     });
                     mCard.startAnimation(animation);
                 }
             }
         });
+
+        getActivity().setTitle("New Surface");
     }
 }

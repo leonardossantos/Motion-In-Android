@@ -15,8 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".motion.responsive.ResponsiveActivity">
-
+        <activity android:name=".motion.MotionActivity"
+            android:parentActivityName=".HomeActivity">
         </activity>
     </application>
 
