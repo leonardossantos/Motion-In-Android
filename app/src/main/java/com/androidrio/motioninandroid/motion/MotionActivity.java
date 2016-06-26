@@ -1,4 +1,4 @@
-package com.androidrio.motioninandroid.motion.responsive;
+package com.androidrio.motioninandroid.motion;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

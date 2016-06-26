@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.model.Motion;
+import com.androidrio.motioninandroid.motion.MotionActivity;
 
 import java.util.List;
 

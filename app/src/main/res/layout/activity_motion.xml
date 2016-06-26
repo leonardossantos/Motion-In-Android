@@ -15,5 +15,5 @@
         android:layout_height="match_parent"
         android:background="@android:color/holo_green_dark"
         android:transitionName="@string/shared_item_background"
-        tools:context=".motion.responsive.MotionActivity" />
+        tools:context=".motion.MotionActivity" />
 </LinearLayout>
