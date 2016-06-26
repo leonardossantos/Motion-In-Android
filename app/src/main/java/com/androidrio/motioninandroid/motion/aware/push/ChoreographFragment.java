@@ -1,6 +1,7 @@
 package com.androidrio.motioninandroid.motion.aware.push;
 
 import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
@@ -105,6 +106,18 @@ public class ChoreographFragment extends Fragment {
     }
 
     private void hideView(final View view) {
-        //Does nothing
+        int cx = (view.getLeft() + view.getRight()) / 2;
+        int cy = (view.getTop() + view.getBottom()) / 2;
+        int initialRadius = view.getWidth();
+        Animator anim = ViewAnimationUtils.createCircularReveal(view, cx, cy, initialRadius, mFirstFab.getWidth());
+        anim.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
+        anim.setInterpolator(new AccelerateDecelerateInterpolator());
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(View.INVISIBLE);
+            }
+        });
+        anim.start();
     }
 }
