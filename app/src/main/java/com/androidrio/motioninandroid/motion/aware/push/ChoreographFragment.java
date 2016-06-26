@@ -30,6 +30,11 @@ import butterknife.ButterKnife;
 
 /**
  * Created by AndroidRio on 09/06/2016.
+ *
+ * This fragment can and will be refactored in the future. This is just one of the many possible ways
+ * of implementing the Google's example https://material-design.storage.googleapis.com/publish/material_v_8/material_ext_publish/0B14F_FSUCc01TkJIam1HM0VsdEU/Aware_01_Choreo-v2.webm
+ * Keep in mind that this would be way easier if implemented using fragment/activity transitions
+ * since we wouldn't have to deal with views location.
  */
 public class ChoreographFragment extends Fragment {
 
