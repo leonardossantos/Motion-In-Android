@@ -67,6 +67,13 @@ public class ChoreographFragment extends Fragment {
         mFirstFab.setOnClickListener(listener);
         mSecondFab.setOnClickListener(listener);
         mThirdFab.setOnClickListener(listener);
+
+        mHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideView(mHeader);
+            }
+        });
     }
 
     private void showHeader(final View fab) {
@@ -95,5 +102,9 @@ public class ChoreographFragment extends Fragment {
         anim.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
         anim.setInterpolator(new AccelerateDecelerateInterpolator());
         anim.start();
+    }
+
+    private void hideView(final View view) {
+        //Does nothing
     }
 }
