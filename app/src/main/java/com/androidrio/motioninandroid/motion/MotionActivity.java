@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.model.Motion;
+import com.androidrio.motioninandroid.motion.aware.push.ChoreographFragment;
 import com.androidrio.motioninandroid.motion.natural.movement.MovementFragment;
 import com.androidrio.motioninandroid.motion.natural.transforming.TransformingMaterialFragment;
 import com.androidrio.motioninandroid.motion.responsive.create.NewSurfaceFragment;
@@ -47,8 +48,11 @@ public class MotionActivity extends AppCompatActivity {
                     fragment = MovementFragment.newInstance();
                     break;
                 case Motion.MOTION_TYPE_TRANSFORM:
-                default:
                     fragment = TransformingMaterialFragment.newInstance();
+                    break;
+                case Motion.MOTION_TYPE_CHOREOGRAPH:
+                default:
+                    fragment = ChoreographFragment.newInstance();
                     break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.content_root, fragment, "motion")

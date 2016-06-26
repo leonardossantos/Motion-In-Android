@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/choreograph_content_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/choreograph_fab_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:layout_below="@+id/choreograph_header"
+        android:layout_toLeftOf="@+id/choreograph_fab_second"
+        app:fabSize="normal" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@id/choreograph_fab_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:layout_below="@id/choreograph_header"
+        android:layout_centerHorizontal="true"
+        app:fabSize="normal" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/choreograph_fab_third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_medium"
+        android:layout_below="@id/choreograph_header"
+        android:layout_toRightOf="@id/choreograph_fab_second"
+        app:fabSize="normal" />
+
+    <View
+        android:id="@id/choreograph_header"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="?attr/colorAccent"
+        android:elevation="6dp"
+        android:visibility="invisible" />
+</RelativeLayout>
