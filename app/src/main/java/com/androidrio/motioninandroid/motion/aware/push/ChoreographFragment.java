@@ -41,6 +41,9 @@ public class ChoreographFragment extends Fragment {
     @Bind(R.id.choreograph_content_root)
     RelativeLayout mContentRoot;
 
+    RelativeLayout.LayoutParams mFabOriginalParams;
+    View mSelectedFab;
+
     public static ChoreographFragment newInstance() {
         ChoreographFragment fragment = new ChoreographFragment();
         return fragment;
@@ -61,6 +64,8 @@ public class ChoreographFragment extends Fragment {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mFabOriginalParams = (RelativeLayout.LayoutParams) v.getLayoutParams();
+                mSelectedFab = v;
                 showHeader(v);
             }
         };
@@ -93,6 +98,12 @@ public class ChoreographFragment extends Fragment {
         fab.setLayoutParams(layoutParams);
     }
 
+    private void showFab(View fab, RelativeLayout.LayoutParams layoutParams) {
+        final Transition arcTransition = TransitionInflater.from(getActivity()).inflateTransition(R.transition.trasition_choreograph);
+        TransitionManager.beginDelayedTransition(mContentRoot, arcTransition);
+        fab.setLayoutParams(layoutParams);
+    }
+
     private void revealView(View sourceView, View targetView, @ColorRes int revealColor) {
         int cx = (targetView.getLeft() + targetView.getRight()) / 2;
         int cy = (targetView.getTop() + targetView.getBottom()) / 2;
@@ -116,6 +127,7 @@ public class ChoreographFragment extends Fragment {
             @Override
             public void onAnimationEnd(Animator animation) {
                 view.setVisibility(View.INVISIBLE);
+                showFab(mSelectedFab, mFabOriginalParams);
             }
         });
         anim.start();
