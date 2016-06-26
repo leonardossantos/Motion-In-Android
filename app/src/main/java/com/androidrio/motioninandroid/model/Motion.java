@@ -10,17 +10,21 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * Created by AndroidRio on 22/06/2016.
  */
-public class Motion implements Parcelable{
+public final class Motion implements Parcelable {
 
     @Retention(RetentionPolicy.SOURCE)
-    @IntDef({MOTION_TYPE_REACT, MOTION_TYPE_CREATE, MOTION_TYPE_MOVEMENT, MOTION_TYPE_TRANSFORM})
-    public @interface MotionType {}
+    @IntDef({MOTION_TYPE_REACT, MOTION_TYPE_CREATE, MOTION_TYPE_MOVEMENT, MOTION_TYPE_TRANSFORM, MOTION_TYPE_CHOREOGRAPH})
+    public @interface MotionType {
+    }
+
     public static final int MOTION_TYPE_REACT = 1;
     public static final int MOTION_TYPE_CREATE = 2;
     public static final int MOTION_TYPE_MOVEMENT = 3;
     public static final int MOTION_TYPE_TRANSFORM = 4;
+    public static final int MOTION_TYPE_CHOREOGRAPH = 5;
 
-    @MotionType private int motionType;
+    @MotionType
+    private int motionType;
 
     public Motion(@MotionType int motionType) {
         this.motionType = motionType;
