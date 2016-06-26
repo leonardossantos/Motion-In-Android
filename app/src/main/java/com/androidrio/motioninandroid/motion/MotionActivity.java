@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.model.Motion;
@@ -48,5 +49,16 @@ public class MotionActivity extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_root, fragment, "motion")
                     .commit();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
