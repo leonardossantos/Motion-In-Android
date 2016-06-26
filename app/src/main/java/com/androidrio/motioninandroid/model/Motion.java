@@ -13,10 +13,11 @@ import java.lang.annotation.RetentionPolicy;
 public class Motion implements Parcelable{
 
     @Retention(RetentionPolicy.SOURCE)
-    @IntDef({MOTION_TYPE_REACT, MOTION_TYPE_CREATE})
+    @IntDef({MOTION_TYPE_REACT, MOTION_TYPE_CREATE, MOTION_TYPE_MOVEMENT})
     public @interface MotionType {}
     public static final int MOTION_TYPE_REACT = 1;
     public static final int MOTION_TYPE_CREATE = 2;
+    public static final int MOTION_TYPE_MOVEMENT = 3;
 
     @MotionType private int motionType;
 
