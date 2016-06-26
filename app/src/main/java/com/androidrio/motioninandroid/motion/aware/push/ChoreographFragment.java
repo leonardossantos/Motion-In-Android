@@ -1,15 +1,20 @@
 package com.androidrio.motioninandroid.motion.aware.push;
 
+import android.animation.Animator;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.RelativeLayout;
 
 import com.androidrio.motioninandroid.R;
@@ -24,6 +29,8 @@ import butterknife.ButterKnife;
  */
 public class ChoreographFragment extends Fragment {
 
+    @Bind(R.id.choreograph_header)
+    View mHeader;
     @Bind(R.id.choreograph_fab_first)
     FloatingActionButton mFirstFab;
     @Bind(R.id.choreograph_fab_second)
@@ -62,12 +69,12 @@ public class ChoreographFragment extends Fragment {
         mThirdFab.setOnClickListener(listener);
     }
 
-    private void showHeader(View fab) {
+    private void showHeader(final View fab) {
         final Transition arcTransition = TransitionInflater.from(getActivity()).inflateTransition(R.transition.trasition_choreograph);
         arcTransition.addListener(new TransitionListenerAdapter() {
             @Override
             public void onTransitionEnd(Transition transition) {
-                //Does nothing
+                revealView(fab, mHeader, R.color.colorAccent);
             }
         });
 
@@ -76,5 +83,17 @@ public class ChoreographFragment extends Fragment {
         layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         layoutParams.setMargins(0, UIUtils.dpToPx(50), 0, 0);
         fab.setLayoutParams(layoutParams);
+    }
+
+    private void revealView(View sourceView, View targetView, @ColorRes int revealColor) {
+        int cx = (targetView.getLeft() + targetView.getRight()) / 2;
+        int cy = (targetView.getTop() + targetView.getBottom()) / 2;
+        float finalRadius = (float) Math.hypot(targetView.getWidth(), targetView.getHeight());
+        Animator anim = ViewAnimationUtils.createCircularReveal(targetView, cx, cy, sourceView.getWidth(), finalRadius);
+        targetView.setVisibility(View.VISIBLE);
+        targetView.setBackgroundColor(ContextCompat.getColor(getActivity(), revealColor));
+        anim.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
+        anim.setInterpolator(new AccelerateDecelerateInterpolator());
+        anim.start();
     }
 }
