@@ -68,7 +68,7 @@ public class ChoreographFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        getActivity().setTitle("Choreograph");
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
