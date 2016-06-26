@@ -12,6 +12,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 
 import com.androidrio.motioninandroid.R;
+import com.androidrio.motioninandroid.widget.AnimationListenerAdapter;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -57,20 +58,10 @@ public class NewSurfaceFragment extends Fragment {
                     mCard.startAnimation(animation);
                 }else{
                     Animation animation = AnimationUtils.loadAnimation(getActivity(), R.anim.anim_new_surface_collapse);
-                    animation.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-
-                        }
-
+                    animation.setAnimationListener(new AnimationListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animation animation) {
                             mCard.setVisibility(View.GONE);
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-
                         }
                     });
                     mCard.startAnimation(animation);
