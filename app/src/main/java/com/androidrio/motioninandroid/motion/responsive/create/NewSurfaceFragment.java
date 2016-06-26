@@ -74,5 +74,7 @@ public class NewSurfaceFragment extends Fragment {
                 }
             }
         });
+
+        getActivity().setTitle("New Surface");
     }
 }
