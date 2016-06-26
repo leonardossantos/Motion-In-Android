@@ -55,7 +55,7 @@ public class ReactionListFragment extends Fragment {
         mReactionList.setLayoutManager(layoutManager);
         mAdapter = new ReactionListAdapter();
         mReactionList.setAdapter(mAdapter);
-        getActivity().getWindow().getSharedElementEnterTransition().addListener(new TransitionListenerAdapter(){
+        getActivity().getWindow().getSharedElementEnterTransition().addListener(new TransitionListenerAdapter() {
             @Override
             public void onTransitionEnd(Transition transition) {
                 mAdapter.animateContent();

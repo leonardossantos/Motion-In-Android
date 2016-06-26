@@ -29,13 +29,13 @@ public class MotionActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        if(getIntent() != null){
-            Bundle bundle =  getIntent().getExtras();
+        if (getIntent() != null) {
+            Bundle bundle = getIntent().getExtras();
             Motion motion = bundle.getParcelable(KEY_MOTION);
 
             Fragment fragment;
 
-            switch (motion.getMotionType()){
+            switch (motion.getMotionType()) {
                 case Motion.MOTION_TYPE_REACT:
                     fragment = ReactionListFragment.newInstance();
                     break;
@@ -53,7 +53,7 @@ public class MotionActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 return true;
