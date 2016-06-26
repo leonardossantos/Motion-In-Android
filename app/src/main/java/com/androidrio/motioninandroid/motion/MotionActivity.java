@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.model.Motion;
+import com.androidrio.motioninandroid.motion.natural.movement.MovementFragment;
 import com.androidrio.motioninandroid.motion.natural.transforming.TransformingMaterialFragment;
 import com.androidrio.motioninandroid.motion.responsive.create.NewSurfaceFragment;
 import com.androidrio.motioninandroid.motion.responsive.react.ReactionListFragment;
@@ -41,6 +42,9 @@ public class MotionActivity extends AppCompatActivity {
                     break;
                 case Motion.MOTION_TYPE_CREATE:
                     fragment = NewSurfaceFragment.newInstance();
+                    break;
+                case Motion.MOTION_TYPE_MOVEMENT:
+                    fragment = MovementFragment.newInstance();
                     break;
                 default:
                     fragment = TransformingMaterialFragment.newInstance();
