@@ -25,9 +25,6 @@ import com.androidrio.motioninandroid.widget.TransitionListenerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * Created by AndroidRio on 09/06/2016.
  *
@@ -38,15 +35,10 @@ import butterknife.ButterKnife;
  */
 public class ChoreographFragment extends Fragment {
 
-    @Bind(R.id.choreograph_header)
     View mHeader;
-    @Bind(R.id.choreograph_fab_first)
     FloatingActionButton mFirstFab;
-    @Bind(R.id.choreograph_fab_second)
     FloatingActionButton mSecondFab;
-    @Bind(R.id.choreograph_fab_third)
     FloatingActionButton mThirdFab;
-    @Bind(R.id.choreograph_content_root)
     RelativeLayout mContentRoot;
 
     RelativeLayout.LayoutParams mFabOriginalParams;
@@ -62,7 +54,11 @@ public class ChoreographFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_choreograph, container, false);
-        ButterKnife.bind(this, rootView);
+        mHeader = rootView.findViewById(R.id.choreograph_header);
+        mFirstFab = (FloatingActionButton) rootView.findViewById(R.id.choreograph_fab_first);
+        mSecondFab = (FloatingActionButton) rootView.findViewById(R.id.choreograph_fab_second);
+        mThirdFab = (FloatingActionButton) rootView.findViewById(R.id.choreograph_fab_third);
+        mContentRoot = (RelativeLayout) rootView.findViewById(R.id.choreograph_content_root);
         mUnselectedFabs = new ArrayList<>();
         mUnselectedFabs.add(mFirstFab);
         mUnselectedFabs.add(mSecondFab);

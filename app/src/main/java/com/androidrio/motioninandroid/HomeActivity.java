@@ -6,19 +6,16 @@ import android.support.v7.widget.Toolbar;
 
 import com.androidrio.motioninandroid.motion.responsive.ResponsiveListFragment;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity {
 
-    @Bind(R.id.activity_home_toolbar)
     Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        ButterKnife.bind(this);
+        mToolbar = (Toolbar) findViewById(R.id.activity_home_toolbar);
 
         setSupportActionBar(mToolbar);
 

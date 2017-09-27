@@ -17,9 +17,6 @@ import com.androidrio.motioninandroid.motion.MotionActivity;
 
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * Created by AndroidRio on 18/06/2016.
  */
@@ -51,12 +48,11 @@ public class ResponsiveListAdapter extends RecyclerView.Adapter {
 
     class HomeListItem extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.item_home_card)
         CardView mHomeCard;
 
         public HomeListItem(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            mHomeCard = (CardView) itemView.findViewById(R.id.item_home_card);
 
             mHomeCard.setOnClickListener(new View.OnClickListener() {
                 @Override

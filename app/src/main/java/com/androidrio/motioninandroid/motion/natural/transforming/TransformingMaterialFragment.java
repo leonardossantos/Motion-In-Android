@@ -15,9 +15,6 @@ import android.widget.FrameLayout;
 
 import com.androidrio.motioninandroid.R;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -26,7 +23,6 @@ public class TransformingMaterialFragment extends Fragment {
 
     private Scene mFirstScene;
     private Scene mSecondScene;
-    @Bind(R.id.fragment_transforming_container)
     FrameLayout mContainer;
 
     public static TransformingMaterialFragment newInstance() {
@@ -34,17 +30,11 @@ public class TransformingMaterialFragment extends Fragment {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_transforming_material, container, false);
-
-        ButterKnife.bind(this, rootView);
+        mContainer = (FrameLayout) rootView.findViewById(R.id.fragment_transforming_container);
 
         return rootView;
     }

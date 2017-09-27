@@ -15,16 +15,12 @@ import android.widget.FrameLayout;
 
 import com.androidrio.motioninandroid.R;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * Created by AndroidRio on 04/06/2016.
  */
 public class MovementFragment extends Fragment {
     private Scene mFirstScene;
     private Scene mSecondScene;
-    @Bind(R.id.fragment_movement_container)
     FrameLayout mContainer;
 
     public static MovementFragment newInstance() {
@@ -41,8 +37,7 @@ public class MovementFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_movement, container, false);
-
-        ButterKnife.bind(this, rootView);
+        mContainer = (FrameLayout) rootView.findViewById(R.id.fragment_movement_container);
 
         return rootView;
     }

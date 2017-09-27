@@ -17,14 +17,9 @@ import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.util.UIUtils;
 import com.androidrio.motioninandroid.widget.AnimationListenerAdapter;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 public class NewSurfaceFragment extends Fragment {
     public static final int CARD_HEIGHT = 160;
-    @Bind(R.id.fragment_new_surface_toggle)
     ImageButton mToogle;
-    @Bind(R.id.fragment_new_surface_card)
     CardView mCard;
 
     public NewSurfaceFragment() {
@@ -45,7 +40,8 @@ public class NewSurfaceFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_new_surface, container, false);
-        ButterKnife.bind(this, rootView);
+        mToogle = (ImageButton) rootView.findViewById(R.id.fragment_new_surface_toggle);
+        mCard = (CardView) rootView.findViewById(R.id.fragment_new_surface_card);
         return rootView;
     }
 

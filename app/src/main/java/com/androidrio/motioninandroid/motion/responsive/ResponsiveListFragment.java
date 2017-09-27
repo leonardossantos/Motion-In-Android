@@ -16,15 +16,11 @@ import com.androidrio.motioninandroid.widget.DividerItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 /**
  * Created by AndroidRio on 22/06/2016.
  */
 public class ResponsiveListFragment extends Fragment {
 
-    @Bind(R.id.fragment_responsive_list)
     RecyclerView mResponsiveList;
 
     public static ResponsiveListFragment newInstance() {
@@ -36,7 +32,7 @@ public class ResponsiveListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_responsive, container, false);
-        ButterKnife.bind(this, rootView);
+        mResponsiveList = (RecyclerView) rootView.findViewById(R.id.fragment_responsive_list);
         return rootView;
     }
 

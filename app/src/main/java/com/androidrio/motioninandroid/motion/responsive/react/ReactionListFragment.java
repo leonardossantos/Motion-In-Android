@@ -14,12 +14,9 @@ import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.widget.DividerItemDecoration;
 import com.androidrio.motioninandroid.widget.TransitionListenerAdapter;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 
 public class ReactionListFragment extends Fragment {
 
-    @Bind(R.id.fragment_reaction_list)
     RecyclerView mReactionList;
 
     private ReactionListAdapter mAdapter;
@@ -41,7 +38,7 @@ public class ReactionListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_reaction_list, container, false);
-        ButterKnife.bind(this, rootView);
+        mReactionList = (RecyclerView) rootView.findViewById(R.id.fragment_reaction_list);
 
         return rootView;
     }

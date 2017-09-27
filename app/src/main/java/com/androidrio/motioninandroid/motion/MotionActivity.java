@@ -14,20 +14,16 @@ import com.androidrio.motioninandroid.motion.natural.transforming.TransformingMa
 import com.androidrio.motioninandroid.motion.responsive.create.NewSurfaceFragment;
 import com.androidrio.motioninandroid.motion.responsive.react.ReactionListFragment;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 public class MotionActivity extends AppCompatActivity {
     public static final String KEY_MOTION = "keyMotion";
 
-    @Bind(R.id.motion_toolbar)
     Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_motion);
-        ButterKnife.bind(this);
+        mToolbar = (Toolbar) findViewById(R.id.motion_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
