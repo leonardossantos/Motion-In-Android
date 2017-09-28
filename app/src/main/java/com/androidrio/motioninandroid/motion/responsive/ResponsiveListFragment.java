@@ -13,8 +13,7 @@ import com.androidrio.motioninandroid.R;
 import com.androidrio.motioninandroid.model.Motion;
 import com.androidrio.motioninandroid.widget.DividerItemDecoration;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * Created by AndroidRio on 22/06/2016.
@@ -45,14 +44,7 @@ public class ResponsiveListFragment extends Fragment {
         DividerItemDecoration itemDecoration = new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL_LIST, 8);
         mResponsiveList.addItemDecoration(itemDecoration);
 
-        List<Motion> list = new ArrayList<>();
-        list.add(new Motion(Motion.MOTION_TYPE_CREATE));
-        list.add(new Motion(Motion.MOTION_TYPE_REACT));
-        list.add(new Motion(Motion.MOTION_TYPE_MOVEMENT));
-        list.add(new Motion(Motion.MOTION_TYPE_TRANSFORM));
-        list.add(new Motion(Motion.MOTION_TYPE_CHOREOGRAPH));
-
-        ResponsiveListAdapter adapter = new ResponsiveListAdapter(getActivity(), list);
+        ResponsiveListAdapter adapter = new ResponsiveListAdapter(getActivity(), Arrays.asList(Motion.values()));
         mResponsiveList.setAdapter(adapter);
     }
 }
