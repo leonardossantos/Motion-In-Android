@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
     android:duration="@android:integer/config_mediumAnimTime">
-    <changeBounds xmlns:android="http://schemas.android.com/apk/res/android">
+    <changeBounds />
 
-        <arcMotion
-            android:maximumAngle="90"
-            android:minimumHorizontalAngle="45"
-            android:minimumVerticalAngle="45" />
-    </changeBounds>
+    <arcMotion
+        android:maximumAngle="90"
+        android:minimumHorizontalAngle="45"
+        android:minimumVerticalAngle="45" />
 </transitionSet>

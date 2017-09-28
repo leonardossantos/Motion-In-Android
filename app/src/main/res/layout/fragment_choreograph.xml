@@ -1,38 +1,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/choreograph_content_root"
+    android:id="@+id/choreographContentRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/choreograph_fab_first"
+        android:id="@+id/choreographFabFirst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_medium"
-        android:layout_below="@+id/choreograph_header"
-        android:layout_toLeftOf="@+id/choreograph_fab_second"
+        android:layout_below="@+id/choreographHeader"
+        android:layout_toLeftOf="@+id/choreographFabSecond"
         app:fabSize="normal" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@id/choreograph_fab_second"
+        android:id="@id/choreographFabSecond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_medium"
-        android:layout_below="@id/choreograph_header"
+        android:layout_below="@id/choreographHeader"
         android:layout_centerHorizontal="true"
         app:fabSize="normal" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/choreograph_fab_third"
+        android:id="@+id/choreographFabThird"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_medium"
-        android:layout_below="@id/choreograph_header"
-        android:layout_toRightOf="@id/choreograph_fab_second"
+        android:layout_below="@id/choreographHeader"
+        android:layout_toRightOf="@id/choreographFabSecond"
         app:fabSize="normal" />
 
     <View
-        android:id="@id/choreograph_header"
+        android:id="@id/choreographHeader"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:background="?attr/colorAccent"
