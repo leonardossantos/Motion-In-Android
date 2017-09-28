@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.androidrio.motioninandroid.R
-import com.androidrio.motioninandroid.model.Motion
 import com.androidrio.motioninandroid.motion.aware.push.ChoreographFragment
 import com.androidrio.motioninandroid.motion.natural.movement.MovementFragment
 import com.androidrio.motioninandroid.motion.natural.transforming.TransformingMaterialFragment
 import com.androidrio.motioninandroid.motion.responsive.create.NewSurfaceFragment
 import com.androidrio.motioninandroid.motion.responsive.react.ReactionListFragment
+import com.androidrio.motioninandroid.motion.type.Motion
 import kotlinx.android.synthetic.main.activity_motion.*
 
 class MotionActivity : AppCompatActivity() {
